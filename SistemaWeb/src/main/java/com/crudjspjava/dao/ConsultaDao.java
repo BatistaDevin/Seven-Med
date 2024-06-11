@@ -11,18 +11,18 @@ import java.sql.Date;
 import com.crudjspjava.bean.Consulta;
 
 public class ConsultaDao {
-    
+
     public static Connection getConnection() {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3307/cliente_db", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:8080/cliente_db", "root", "");
         } catch (Exception e) {
             System.out.println(e);
         }
         return con;
     }
-    
+
     public static int salvarConsulta(Consulta c) {
         int status = 0;
         try {
@@ -128,4 +128,19 @@ public class ConsultaDao {
         }
         return consulta;
     }
+
+    public static int deleteConsulta(int id) {
+        int status = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM consulta WHERE id = ?");
+            ps.setInt(1, id);
+            status = ps.executeUpdate();
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return status;
+    }
 }
+

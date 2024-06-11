@@ -9,6 +9,34 @@
     <meta charset="ISO-8859-1">
     <title>Consulta de Agendamentos</title>
     <link rel="stylesheet" href="styleViewMedico.css"> <!-- Ajuste o caminho para seu arquivo CSS -->
+    <style>
+        .container {
+            width: 100%; /* Aumentando a largura */
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 30px; /* Adicionando margem superior */
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -73,6 +101,7 @@
                     <th>Concluído</th>
                     <th>Diagnóstico</th> <!-- Adicionando a coluna de diagnóstico -->
                     <th>Editar</th>
+                    <th>Excluir</th> <!-- Adicionando a coluna de excluir -->
                 </tr>
             </thead>
             <tbody>
@@ -86,10 +115,20 @@
                         <td>${consulta.isConcluido() ? "Sim" : "Não"}</td>
                         <td>${consulta.getDiagnostico()}</td> <!-- Exibindo o diagnóstico -->
                         <td><a href="editconsulta.jsp?id=${consulta.getId()}" class="edit-btn">Editar</a></td>
+                        <td>
+                            <form action="deleteconsulta.jsp" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="${consulta.getId()}" />
+                                <button type="submit" class="delete-btn">Excluir</button>
+                            </form>
+                        </td> <!-- Adicionando o botão de excluir -->
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+        <div class="text-center">
+            <a href="viewcliente.html" class="btn">Voltar para Home</a>
+        </div>
     </div>
 </body>
 </html>
+

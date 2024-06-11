@@ -71,7 +71,15 @@
             </div>
             <div class="form-group">
                 <label for="exame">Exame:</label>
-                <input type="text" class="form-control" id="exame" name="exame">
+                <select class="form-control" id="exame" name="exame">
+                    <option value="Teste de Rorschach">Teste de Rorschach</option>
+                    <option value="Teste de Rorschach">Escala de Avaliação de Mania de Young (YMRS)</option>
+                    <option value="Teste de Rorschach">Escala de Ansiedade de Hamilton (HAM-A)</option>
+                    <option value="Teste de Rorschach">Inventário de Depressão de Beck (BDI)</option>
+                    <option value="Teste de Apercepção Temática (TAT)">Teste de Apercepção Temática (TAT)</option>
+                    <option value="Inventário de Personalidade de Minnesota (MMPI)">Inventário de Personalidade de Minnesota (MMPI)</option>
+                    <!-- Adicione outras opções aqui conforme necessário -->
+                </select>
             </div>
             <div class="form-group">
                 <label for="hora">Hora:</label>

@@ -47,7 +47,14 @@
                 </tr>
                 <tr>
                     <td>Diagnóstico:</td>
-                    <td><input type="text" name="diagnostico" value="<%=consulta.getDiagnostico()%>"/></td>
+                    <td>
+                        <select name="diagnostico">
+                            <option value="Transtorno de ansiedade generalizada (TAG)">Transtorno de ansiedade generalizada (TAG)</option>
+                            <option value="Transtorno do pânico">Transtorno do pânico</option>
+                            <option value="Ansiedade social">Ansiedade social</option>
+                            <option value="Ansiedade situacional">Ansiedade situacional</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Salvar"/></td>
